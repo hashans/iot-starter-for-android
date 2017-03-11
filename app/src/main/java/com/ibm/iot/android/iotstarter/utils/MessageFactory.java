@@ -31,6 +31,7 @@ public class MessageFactory {
      * Construct a JSON formatted string accel event message
      * @param G Float array with accelerometer x, y, z data
      * @param O Float array with gyroscope roll, pitch data
+     * @param GYRO Float array with gyroscope data
      * @param yaw Float representing gyroscope yaw value
      * @param lon Double containing device longitude
      * @param lat Double containing device latitude
@@ -39,7 +40,8 @@ public class MessageFactory {
      * @param tripId Long containing trip identifier
      * @return String containing JSON formatted message
      */
-    public static String getAccelMessage(float G[], float O[], float yaw, double lon, double lat, float heading, float speed, long tripId) {
+    public static String getAccelMessage(float G[], float O[], float GYRO[],float yaw, double lon, double lat,
+                                         float heading, float speed, long tripId) {
         // Android does not support the X pattern, so use Z and insert ':' if required.
         DateFormat isoDateTimeFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
 //        isoDateTimeFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
@@ -52,6 +54,9 @@ public class MessageFactory {
                 "\"acceleration_x\":" + G[0] + ", " +
                 "\"acceleration_y\":" + G[1] + ", " +
                 "\"acceleration_z\":" + G[2] + ", " +
+                "\"gyroscope_x\":" + GYRO[0] + ", " +
+                "\"gyroscope_y\":" + GYRO[1] + ", " +
+                "\"gyroscope_z\":" + GYRO[2] + ", " +
                 "\"roll\":" + O[2] + ", " +
                 "\"pitch\":" + O[1] + ", " +
                 "\"yaw\":" + yaw + ", " +
