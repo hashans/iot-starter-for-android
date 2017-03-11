@@ -15,9 +15,11 @@
  *******************************************************************************/
 package com.ibm.iot.android.iotstarter.activities;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -39,6 +41,7 @@ import com.ibm.iot.android.iotstarter.views.DrawingView;
  * a brief overview of the application.
  */
 public class MainPagerActivity extends FragmentActivity {
+    public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     public static final String TAG = MainPagerActivity.class.getName();
 
     private ViewPager pager;
@@ -50,6 +53,10 @@ public class MainPagerActivity extends FragmentActivity {
 
         pager = (ViewPager) findViewById(R.id.pager);
         pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
+
+        ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                MY_PERMISSIONS_REQUEST_LOCATION);
 
         if(savedInstanceState != null) {
             int tabIndex = savedInstanceState.getInt("tabIndex");

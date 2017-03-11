@@ -241,7 +241,7 @@ public class LoginPagerFragment extends IoTStarterPagerFragment {
         Log.d(TAG, ".handleActivate() entered");
         String buttonTitle = ((Button) getActivity().findViewById(R.id.activateButton)).getText().toString();
         Button activateButton = (Button) getActivity().findViewById(R.id.activateButton);
-        app.setDeviceType(Constants.DEVICE_TYPE);
+        app.setDeviceType(((EditText) getActivity().findViewById(R.id.deviceTypeValue)).getText().toString());
         app.setDeviceId(((EditText) getActivity().findViewById(R.id.deviceIDValue)).getText().toString());
         app.setOrganization(((EditText) getActivity().findViewById(R.id.organizationValue)).getText().toString());
         app.setAuthToken(((EditText) getActivity().findViewById(R.id.authTokenValue)).getText().toString());

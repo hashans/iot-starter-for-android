@@ -72,10 +72,12 @@
 
     <!-- Begin Settings Activity -->
     <string name="organization_setting">Organization: </string>
+    <string name="device_type_setting">Device Type: </string>
     <string name="device_id_setting">Device ID: </string>
     <string name="auth_token_setting">Auth Token: </string>
 
     <string name="organization_value">Organization</string>
+    <string name="device_Type_value">Device Type</string>
     <string name="device_id_value">Device ID</string>
     <string name="auth_token_value">Auth Token</string>
 
